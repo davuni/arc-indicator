@@ -6,7 +6,7 @@ Sub Indicator()
 ' 2010/9/12 20:44
 '
 ' Arc shape ported by D. Squirryl
-' 2020/5/13 20:32
+' 2020/5/13 20:45
 
     Dim mySlides As Slides
     Dim pageBar As ShapeRange
@@ -50,8 +50,6 @@ Sub Indicator()
     On Error Resume Next
     For i = 1 To mySlides.Count
         k = k + MyArray(i, 0)
-        Set pageBar = mySlides.Item(i).Shapes.Range(Array())
-        Set pageBar = mySlides.Item(i).Shapes.Range(Array("RectanglePageNum"))
         If IsNull(pageBar) Or pageBar.Count = 0 Then GoTo newIndicator
         Set pageIndicator = pageBar.Item(1)
         GoTo nextPage
