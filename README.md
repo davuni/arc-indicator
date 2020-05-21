@@ -2,7 +2,7 @@
 
 ![Demo](demo.png)
 
-A VBA macro for Microsoft Powerpoint that generates an overlaid circular ring as a slide progress indicator.
+A VBA macro for Microsoft PowerPoint that generates an overlaid circular ring as a slide progress indicator.
 
 Parameters available for direct adjustment include:
 
