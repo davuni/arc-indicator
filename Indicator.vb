@@ -6,7 +6,7 @@ Sub Indicator()
 ' 2010/9/12 20:44
 '
 ' Arc shape ported by D. Squirryl
-' 2020/5/13 20:45
+' 2020/5/14 11:42
 
     Dim mySlides As Slides
     Dim pageBar As ShapeRange
@@ -22,15 +22,18 @@ Sub Indicator()
     pageHeight = Application.ActivePresentation.SlideMaster.Height
     
 ' Parameters
-    Dim x, y, w, h, r, color, colorbg
+    Dim x, y, w, h, r, color, colorbg, colorfocus, trans, transbg, transfocus
     x = pageWidth - 90
     y = 40
     w = 50
     h = 50
     r = 0.1
-    color = RGB(190, 213, 247)
-    colorbg = RGB(95, 95, 95)
-    colorfocus = RGB(127, 156, 212)
+    color = RGB(255, 255, 255)
+    colorbg = RGB(255, 255, 255)
+    colorfocus = RGB(255, 255, 255)
+    trans = 0.8
+    transbg = 0.95
+    transfocus = 0.75
 ' Parameters
 
     ReDim MyArray(mySlides.Count, 0)
@@ -58,6 +61,10 @@ newIndicator:
         Set pageIndicatorBG = mySlides.Item(i).Shapes.AddShape(msoShapeBlockArc, x, y, w, h)
         Set pageIndicator = mySlides.Item(i).Shapes.AddShape(msoShapeBlockArc, x, y, w, h)
         Set pageIndicatorFocus = mySlides.Item(i).Shapes.AddShape(msoShapeBlockArc, x, y, w, h)
+        
+        pageIndicator.Fill.Transparency = trans
+        pageIndicatorBG.Fill.Transparency = transbg
+        pageIndicatorFocus.Fill.Transparency = transfocus
         pageIndicator.Fill.ForeColor.RGB = color
         pageIndicatorBG.Fill.ForeColor.RGB = colorbg
         pageIndicatorFocus.Fill.ForeColor.RGB = colorfocus
@@ -81,4 +88,3 @@ nextPage:
         
     Next
 End Sub
-
